@@ -1,0 +1,32 @@
+<template name="adminChurchEdit">
+	<div class="content">
+		<div class="user-view">
+			<!--{{#unless canEditOrAdd}}
+				<p>{{_ "You_are_not_authorized_to_view_this_page"}}</p>
+			{{else}}-->
+				<div class="about clearfix">
+					<form class="edit-form" autocomplete="off">
+						<!--{{#if user}}
+							<h3>{{user.name}}</h3>
+						{{else}}-->
+							<h3>{{_ "Add_Church"}}</h3>
+						<!--{{/if}}-->
+						<div class="input-line">
+							<label for="name">{{_ "Name"}}</label>
+							<input type="text" id="txtChurchName" autocomplete="off" value="{{user.name}}">
+						</div>
+						<div class="input-line">
+							<label for="username">{{_ "Username"}}</label>
+							{{> inputAutocomplete settings=agentAutocompleteSettings name="username" class="search" placeholder=(_ "Search_by_username") autocomplete="off" id="txtUserName"}}
+							<!--<input type="text" id="username" autocomplete="off" value="{{user.username}}">-->
+						</div>
+						<nav>
+							<button class='button button-block cancel' type="button"><span>{{_ "Cancel"}}</span></button>
+							<button class='button button-block primary save'><span>{{_ "Save"}}</span></button>
+						</nav>
+					</form>
+				</div>
+			<!--{{/unless}}-->
+		</div>
+	</div>
+</template>

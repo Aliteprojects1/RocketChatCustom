@@ -1,0 +1,69 @@
+<template name="messages">
+    <div class="messages">
+        <div class="wrapper">
+            <ul>
+                {{#each messages}}
+                    {{#nrr nrrargs 'message' .}}{{/nrr}}
+                {{/each}}
+                {{#if willShowRegister}}
+                    <div class="livechat-form">
+                        {{#if showLoading}}
+                                <div style="height: 110px;" align="center">
+                                    <svg width='122px' height='122px' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="uil-balls">
+                                        <rect x="0" y="0" width="100" height="100" fill="none" class="bk"></rect><g transform="rotate(0 50 50)">
+                                        <circle r="7" cx="35" cy="50">
+                                            <animateTransform attributeName="transform" type="translate" begin="0s" repeatCount="indefinite" dur="0.6s" values="0 0;14.999999999999998 -15" keyTimes="0;1"/>
+                                            <animate attributeName="fill" dur="0.6s" begin="0s" repeatCount="indefinite"  keyTimes="0;1" values="#fefefe;#cec9c9"/>
+                                        </circle>
+                                    </g><g transform="rotate(90 50 50)">
+                                        <circle r="7" cx="35" cy="50">
+                                            <animateTransform attributeName="transform" type="translate" begin="0s" repeatCount="indefinite" dur="0.6s" values="0 0;14.999999999999998 -15" keyTimes="0;1"/>
+                                            <animate attributeName="fill" dur="0.6s" begin="0s" repeatCount="indefinite"  keyTimes="0;1" values="#cec9c9;#3c302e"/>
+                                        </circle>
+                                    </g><g transform="rotate(180 50 50)">
+                                        <circle r="7" cx="35" cy="50">
+                                            <animateTransform attributeName="transform" type="translate" begin="0s" repeatCount="indefinite" dur="0.6s" values="0 0;14.999999999999998 -15" keyTimes="0;1"/>
+                                            <animate attributeName="fill" dur="0.6s" begin="0s" repeatCount="indefinite"  keyTimes="0;1" values="#3c302e;#bb171a"/>
+                                        </circle>
+                                    </g><g transform="rotate(270 50 50)">
+                                        <circle r="7" cx="35" cy="50">
+                                            <animateTransform attributeName="transform" type="translate" begin="0s" repeatCount="indefinite" dur="0.6s" values="0 0;14.999999999999998 -15" keyTimes="0;1"/>
+                                            <animate attributeName="fill" dur="0.6s" begin="0s" repeatCount="indefinite"  keyTimes="0;1" values="#bb171a;#fefefe"/>
+                                        </circle>
+                                    </g></svg>
+                                </div>
+                        {{else}}
+                            <p class="welcome">
+                                <!--{{_ "We_are_currently_offline_leave_your_message"}}-->
+                                {{churchName}} is currently offline. Please complete form and we will  reply by email.
+                            </p>
+                            <input class="registerInput"  type="text" name="name" id="guestName" placeholder="{{_ "Name"}}">
+                            <input class="registerInput" type="email" name="email" id="guestEmail" placeholder="{{_ "Email"}}">
+                            <button class="registerSubmit button" type="submit" id="btnSubmit" > {{_ "Submit"}} </button>
+                        {{/if}}
+                    </div>
+                {{/if}}
+            </ul>
+        </div>
+        <div class="new-message not">
+            <span>{{_ "New_messages"}}</span>
+        </div>
+
+        <div class="error">
+            <span></span>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="message-bar">
+            <div class="input-wrapper">
+                <textarea class="input-message" placeholder="{{_ "Type_your_message"}}"></textarea>
+            </div>
+            <div class="buttons">
+                <svg class="send-button" aria-label="{{_ "Send"}}" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1764 11q33 24 27 64l-256 1536q-5 29-32 45-14 8-31 8-11 0-24-5l-453-185-242 295q-18 23-49 23-13 0-22-4-19-7-30.5-23.5t-11.5-36.5v-349l864-1059-1069 925-395-162q-37-14-40-55-2-40 32-59l1664-960q15-9 32-9 20 0 36 11z"/></svg>
+                {{#if videoCallEnabled}}
+                    <svg class="video-button" aria-label="{{_ "Video"}}"  viewBox="0 0 459 459" xmlns="http://www.w3.org/2000/svg"><path d="M357,191.25V102c0-15.3-10.2-25.5-25.5-25.5h-306C10.2,76.5,0,86.7,0,102v255c0,15.3,10.2,25.5,25.5,25.5h306 c15.3,0,25.5-10.2,25.5-25.5v-89.25l102,102V89.25L357,191.25z"/></svg>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</template>
